@@ -1,781 +1,570 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0a2540">
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
-<script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#faf8f4">
+  <meta name="description" content="Império das Próteses — próteses em resina, estratificações e próteses sobre implante. Veja trabalhos reais e solicite um orçamento pelo WhatsApp.">
+  <title>Império das Próteses | Modelo claro v2</title>
+  <style>
+    :root {
+      --porcelain: #faf8f4; --ivory: #f3efe7; --card: #ffffff;
+      --ink: #1c1e22; --ink-soft: #5d626b; --steel: #6b7a8c;
+      --gold: #b68c48; --gold-deep: #8f6a2c; --gold-light: #f0d99e;
+      --dark: #101114; --dark-2: #191b20;
+      --line: rgba(28,30,34,.11); --radius: 22px; --max: 1120px;
+      --shadow: 0 18px 50px rgba(60,48,25,.10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+    body { margin: 0; background: var(--porcelain); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin-inline: auto; }
+    .serif { font-family: Georgia, "Times New Roman", serif; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--gold-deep); font-size: .74rem; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+    .gold-text { background: linear-gradient(110deg, #d9b565, #a67a2f 55%, #cfa550); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .btn { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 24px; border-radius: 999px; border: 1px solid transparent; font-weight: 800; font-size: .92rem; transition: transform .25s, box-shadow .25s, background .25s, border-color .25s; cursor: pointer; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { color: #1d170a; background: linear-gradient(120deg, #f0d99e, #c79b45); box-shadow: 0 10px 26px rgba(182,140,72,.28); }
+    .btn-outline { color: var(--ink); border-color: rgba(28,30,34,.25); background: transparent; }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(182,140,72,.08); }
+    .btn-outline.on-dark { color: #e5e6ea; border-color: rgba(255,255,255,.3); }
 
-const EXTS=["jpeg","jpg","png","webp","JPG","JPEG"];
-function imgFail(img){
-  const t=+(img.dataset.try||0), base=img.getAttribute("src").replace(/\.[^.\/]+$/,"");
-  if(t<EXTS.length){img.dataset.try=t+1;img.src=base+"."+EXTS[t];return}
-  img.onerror=null;
-  const dev=location.protocol==="file:"||/^(localhost|127\.)/.test(location.hostname);
-  if(!dev){const m=img.closest(".portrait");img.remove();if(m)m.classList.add("noimg");return}
-  const d=document.createElement("div");d.className="missing";d.textContent="Não achei "+base.split("/").pop()+" na pasta do site";img.replaceWith(d);
-}
-</script>
-<title>Ronald Silva | Prótese dentária para dentistas e clínicas — Império das Próteses</title>
-<meta name="description" content="Laboratório de prótese dentária para dentistas e clínicas: protocolo com barra sobre implante, coroas, facetas, próteses removíveis e enceramento de diagnóstico. Envie o molde e peça um orçamento pelo WhatsApp.">
-<meta property="og:title" content="Império das Próteses — Ronald Silva">
-<meta property="og:description" content="Prótese dentária, estética e reabilitação oral para dentistas e clínicas.">
-<meta property="og:image" content="logoronald2.png">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#0a2540;
-  --navy-2:#12365c;
-  --blue:#1a6fd4;
-  --blue-dark:#1558ab;
-  --cyan:#35b6d6;
-  --sky:#e6f0fb;
-  --ice:#f4f8fc;
-  --white:#fff;
-  --ink:#10243b;
-  --muted:#53667d;
-  --line:#dbe5f0;
-  --wa:#1fb35f;
-  --r:18px;
-  --max:1160px;
-  --head:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;
-  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-.wrap{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
-h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.03em;margin:0}
-.kicker{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:12px;font-weight:700;font-size:.95rem;border:1.5px solid transparent;transition:transform .2s,background .2s,box-shadow .2s,border-color .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 22px rgba(31,179,95,.28)}
-.btn-wa:hover{background:#18a054}
-.btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:var(--blue-dark)}
-.btn-line{border-color:rgba(255,255,255,.4);color:#fff}
-.btn-line:hover{background:rgba(255,255,255,.1)}
-.btn-line.dark{border-color:var(--line);color:var(--ink)}
-.btn-line.dark:hover{border-color:var(--blue);color:var(--blue)}
-.btn svg{width:18px;height:18px;fill:currentColor;flex:none}
-:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+    /* Header */
+    .site-header { position: fixed; inset: 0 0 auto; z-index: 50; background: rgba(250,248,244,.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: border-color .25s, background .25s; }
+    .site-header.scrolled { border-color: var(--line); background: rgba(250,248,244,.96); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--gold); border-radius: 13px; color: var(--gold-deep); font-family: Georgia, serif; font-size: 1.2rem; background: linear-gradient(145deg, rgba(182,140,72,.14), rgba(255,255,255,.6)); }
+    .brand-name { display: grid; line-height: 1.05; }
+    .brand-name strong { font-family: Georgia, serif; font-size: 1.05rem; letter-spacing: .03em; }
+    .brand-name small { color: var(--steel); font-size: .58rem; letter-spacing: .2em; margin-top: 5px; text-transform: uppercase; }
+    .nav .btn { min-height: 44px; padding-inline: 18px; }
 
-/* header */
-header{position:fixed;inset:0 0 auto;z-index:50;transition:background .25s,box-shadow .25s}
-header.solid{background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;color:#fff;transition:color .25s}
-header.solid .brand{color:var(--navy)}
-.logo{flex:none;width:46px;height:46px;padding:5px;border-radius:12px;background:#fff;display:grid;place-items:center;box-shadow:0 2px 12px rgba(6,18,32,.18)}
-.logo img{width:100%;height:100%;object-fit:contain}
-.brand b{display:block;font-family:var(--head);font-size:1.02rem;letter-spacing:-.01em;line-height:1.1}
-.brand-text small{display:block;font-size:.7rem;font-weight:500;opacity:.75;margin-top:2px}
-.menu{display:flex;align-items:center;gap:30px;font-size:.9rem;font-weight:600;color:#dbe7f5}
-header.solid .menu{color:var(--muted)}
-.menu a:not(.btn){position:relative;padding:6px 0}
-.menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--cyan);transition:width .25s}
-.menu a:not(.btn):hover::after,.menu a.on::after{width:100%}
-.menu a.on,.menu a:not(.btn):hover{color:#fff}
-header.solid .menu a.on,header.solid .menu a:not(.btn):hover{color:var(--navy)}
-.menu .btn{min-height:42px;padding:0 18px;font-size:.86rem}
-.burger{display:none;width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;place-items:center}
-header.solid .burger{border-color:var(--line);color:var(--navy)}
-.burger svg{width:22px;height:22px}
+    /* Hero */
+    .hero { padding: 150px 0 96px; color: #f7f7f5; position: relative; isolation: isolate; overflow: hidden;
+      background: radial-gradient(ellipse at 80% 40%, rgba(181,148,84,.2), transparent 40%), linear-gradient(135deg, #101114, #1a1c21 60%, #121317); }
+    .hero::before { content: ""; position: absolute; z-index: -1; width: 600px; height: 600px; right: -170px; top: 60px; border: 1px solid rgba(214,179,106,.14); border-radius: 50%; box-shadow: 0 0 0 48px rgba(214,179,106,.025), 0 0 0 100px rgba(214,179,106,.018); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 60px; }
+    .hero .eyebrow { color: var(--gold-light); }
+    .hero h1 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: 1; letter-spacing: -.05em; margin: 22px 0; }
+    .hero p { color: #b8bbc3; font-size: 1.08rem; max-width: 540px; margin: 0 0 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .portrait-wrap { position: relative; max-width: 440px; margin-inline: auto; width: 100%; }
+    .portrait { min-height: 540px; border-radius: 220px 220px 26px 26px; border: 1px solid rgba(214,179,106,.45); overflow: hidden; position: relative; display: grid; place-items: center; text-align: center; padding: 30px; color: #cfd2d8;
+      background: radial-gradient(ellipse at 50% 35%, rgba(214,179,106,.22), transparent 45%), linear-gradient(150deg, #34373d, #17191e 65%); }
+    .portrait::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(240,217,158,.28); border-radius: 208px 208px 18px 18px; pointer-events: none; z-index: 2; }
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+    .portrait small { display: block; max-width: 220px; color: #9fa4ae; font-size: .78rem; margin-top: 8px; }
+    .badge { position: absolute; z-index: 3; left: 50%; bottom: -22px; transform: translateX(-50%); white-space: nowrap; padding: 12px 22px; border-radius: 999px; background: linear-gradient(120deg, #f0d99e, #c79b45); color: #1d170a; font-weight: 800; font-size: .82rem; box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+    .badge span { font-weight: 600; opacity: .75; }
 
-/* hero */
-.hero{position:relative;background:var(--navy);color:#fff;padding:136px 0 0;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(900px 500px at 85% 20%,rgba(53,182,214,.22),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(26,111,212,.35),transparent 60%)}
-.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;padding-bottom:84px}
-.hero h1{font-size:clamp(2.5rem,5.4vw,4.4rem);margin:18px 0 20px;font-weight:700}
-.hero h1 em{font-style:normal;color:var(--cyan)}
-.hero p.lead{font-size:1.1rem;color:#bfd0e4;max-width:520px;margin:0 0 30px}
-.hero .kicker{color:var(--cyan)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
-.hero-sign{margin-top:36px;display:flex;align-items:center;gap:14px;font-size:.88rem;color:#9db3cc}
-.hero-sign::before{content:"";width:34px;height:1px;background:#4a6a8f}
-.hero-sign b{color:#fff;font-weight:600}
-.hero-photo{position:relative}
-.frame{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;background:linear-gradient(150deg,#16406f,#0d2d50);box-shadow:0 30px 70px rgba(0,0,0,.4)}
-.frame{background:#fcfcfa}
-.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:7%}
-.hero-photo{width:100%;max-width:480px;margin-inline:auto}
-.hero-photo .frame{aspect-ratio:4/5}
+    /* Faixa de confiança */
+    .trust { background: var(--card); border-bottom: 1px solid var(--line); }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .trust-item { padding: 22px; text-align: center; font-weight: 650; font-size: .88rem; color: var(--ink-soft); }
+    .trust-item + .trust-item { border-left: 1px solid var(--line); }
+    .trust-item b { color: var(--gold-deep); margin-right: 6px; }
 
-.tag{position:absolute;left:-18px;bottom:36px;background:#fff;color:var(--ink);border-radius:14px;padding:12px 18px;box-shadow:0 14px 34px rgba(0,0,0,.25);font-size:.84rem;line-height:1.35}
-.tag b{display:block;font-family:var(--head);font-size:.98rem;color:var(--navy)}
-.tag span{color:var(--muted)}
-.hero-photo::after{content:"";position:absolute;z-index:-1;right:-26px;top:-26px;width:60%;height:60%;border-radius:30px;border:1.5px solid rgba(53,182,214,.4)}
+    /* Índice */
+    .toc { position: sticky; top: 76px; z-index: 40; background: rgba(250,248,244,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .toc-inner { display: flex; gap: 8px; padding: 12px 0; overflow-x: auto; scrollbar-width: none; }
+    .toc-inner::-webkit-scrollbar { display: none; }
+    .toc a { flex: 0 0 auto; padding: 9px 18px; border-radius: 999px; font-size: .84rem; font-weight: 700; color: var(--ink-soft); border: 1px solid var(--line); background: var(--card); transition: all .2s; }
+    .toc a:hover { border-color: var(--gold); color: var(--gold-deep); }
+    .toc a.active { background: var(--ink); color: var(--gold-light); border-color: var(--ink); }
 
-/* faixa de especialidades */
-.ticker{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;gap:0;animation:slide 38s linear infinite;padding:14px 0}
-.ticker span{display:inline-flex;align-items:center;font-weight:600;font-size:.9rem;padding:0 22px}
-.ticker span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--cyan);margin-left:44px}
-@keyframes slide{to{transform:translateX(-50%)}}
-.ticker:hover .ticker-track{animation-play-state:paused}
+    /* Intro */
+    .intro { padding: 90px 0 30px; }
+    .intro-box { max-width: 760px; }
+    .intro h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin: 14px 0 16px; }
+    .intro p { color: var(--ink-soft); font-size: 1.05rem; margin: 0; }
 
-section{padding:96px 0}
-.sec-head{max-width:640px;margin-bottom:46px}
-.sec-head h2{font-size:clamp(2rem,3.8vw,3rem);margin:12px 0 14px}
-.sec-head p{color:var(--muted);margin:0;font-size:1.04rem}
+    /* Seção por prótese */
+    .type { padding: 90px 0; }
+    .type:nth-of-type(even) { background: var(--ivory); }
+    .split { display: grid; grid-template-columns: .92fr 1.08fr; gap: 70px; align-items: start; }
+    .split.reverse { grid-template-columns: 1.08fr .92fr; }
+    .split.reverse .media-col { order: 2; }
+    .media-col { position: sticky; top: 150px; }
+    .media { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; position: relative; display: grid; place-items: center; text-align: center; padding: 28px; color: var(--steel);
+      border: 1px solid rgba(182,140,72,.35); box-shadow: var(--shadow); background: radial-gradient(circle at 50% 38%, #fff, #ece7dc 70%); }
+    .media::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(255,255,255,.55); border-radius: 14px; pointer-events: none; z-index: 2; }
+    .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+    .media:hover img { transform: scale(1.04); }
+    .media svg { width: 54px; height: 54px; color: var(--gold); margin: 0 auto 12px; }
+    .media strong { display: block; font-family: Georgia, serif; font-weight: 500; font-size: 1.1rem; color: var(--ink); }
+    .media small { font-size: .76rem; }
+    .thumbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 12px; }
+    .thumbs button { padding: 0; border: 1px solid rgba(182,140,72,.35); border-radius: 14px; overflow: hidden; aspect-ratio: 1; background: var(--ivory); cursor: zoom-in; }
+    .thumbs img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .thumbs button:hover img { transform: scale(1.06); }
+    .caption { font-size: .78rem; color: var(--steel); margin-top: 12px; text-align: center; }
+    .type-num { font-family: Georgia, serif; color: var(--gold); font-size: 1.1rem; letter-spacing: .1em; }
+    .type h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.08; letter-spacing: -.04em; margin: 8px 0 18px; }
+    .lead { font-size: 1.08rem; color: var(--ink); margin: 0 0 14px; }
+    .type p { color: var(--ink-soft); margin: 0 0 14px; }
+    .for-whom { margin: 26px 0; padding: 22px 24px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--gold); box-shadow: 0 8px 24px rgba(60,48,25,.05); }
+    .for-whom h3 { margin: 0 0 8px; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-deep); }
+    .for-whom p { margin: 0; color: var(--ink); }
+    .type h3.sub { font-family: Georgia, serif; font-weight: 500; font-size: 1.35rem; margin: 30px 0 12px; }
+    .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .ticks li { display: flex; gap: 12px; color: var(--ink-soft); font-size: .96rem; }
+    .ticks li::before { content: ""; flex: 0 0 18px; height: 18px; margin-top: 4px; border-radius: 50%; background: rgba(182,140,72,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238f6a2c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l4 4L19 7'/%3E%3C/svg%3E") center/11px no-repeat; }
+    .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .steps li { counter-increment: s; display: grid; grid-template-columns: 38px 1fr; gap: 14px; align-items: start; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; font-size: .93rem; color: var(--ink-soft); }
+    .steps li::before { content: counter(s); width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; background: var(--ink); color: var(--gold-light); font-family: Georgia, serif; }
+    .steps b { display: block; color: var(--ink); font-size: .96rem; }
+    .care { margin-top: 26px; padding: 20px 22px; border-radius: 16px; background: rgba(107,122,140,.09); border: 1px solid rgba(107,122,140,.22); }
+    .care h3 { margin: 0 0 6px; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--steel); }
+    .care p { margin: 0; font-size: .93rem; }
+    .type .btn { margin-top: 26px; }
 
-/* fluxo */
-.flow{background:var(--ice)}
-.flow-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:f;position:relative}
-.flow-list::before{content:"";position:absolute;top:22px;left:22px;right:22px;height:2px;background:repeating-linear-gradient(90deg,var(--blue) 0 8px,transparent 8px 16px);opacity:.35}
-.flow-list li{counter-increment:f;position:relative;padding:0 22px 0 0}
-.flow-list li::before{content:counter(f);width:44px;height:44px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);display:grid;place-items:center;font-family:var(--head);font-weight:700;margin-bottom:18px;position:relative}
-.flow-list h3{font-size:1.15rem;margin-bottom:8px;letter-spacing:-.02em}
-.flow-list p{margin:0;color:var(--muted);font-size:.93rem}
+    /* Portfólio */
+    .portfolio { padding: 100px 0; background: var(--dark); color: #f7f7f5; position: relative; isolation: isolate; overflow: hidden;
+      background: radial-gradient(ellipse at 15% 0%, rgba(181,148,84,.18), transparent 45%), linear-gradient(135deg, #101114, #1a1c21); }
+    .portfolio .eyebrow { color: var(--gold-light); }
+    .portfolio h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin: 14px 0 12px; }
+    .portfolio .sub-p { color: #adb1ba; max-width: 600px; margin: 0 0 40px; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .gallery button { position: relative; padding: 0; border: 1px solid rgba(214,179,106,.3); border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 5; background: #1c1e23; cursor: zoom-in; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease, filter .4s; }
+    .gallery button:hover img { transform: scale(1.06); }
+    .gallery button::after { content: "Ampliar"; position: absolute; left: 12px; bottom: 12px; padding: 6px 14px; border-radius: 999px; background: rgba(16,17,20,.75); color: var(--gold-light); font-size: .74rem; font-weight: 700; opacity: 0; transform: translateY(6px); transition: all .3s; }
+    .gallery button:hover::after { opacity: 1; transform: none; }
+    .gallery-cta { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 13px; align-items: center; }
+    .gallery-cta span { color: #9fa4ae; font-size: .9rem; }
 
-/* galeria */
-.work-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:30px}
-.work-top .sec-head{margin:0}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filters button{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-weight:600;font-size:.84rem;transition:all .2s}
-.filters button:hover{border-color:var(--blue);color:var(--blue)}
-.filters button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-.gallery{columns:3 260px;column-gap:16px}
-.shot{break-inside:avoid;margin:0 0 16px;position:relative;border-radius:14px;overflow:hidden;background:var(--sky);display:block;width:100%;border:0;padding:0;text-align:left}
-.shot img{width:100%;height:auto;transition:transform .5s ease}
-.shot:hover img{transform:scale(1.04)}
-.shot .cap{position:absolute;inset:auto 0 0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(10,37,64,.85));color:#fff;font-size:.82rem;font-weight:600;opacity:0;transform:translateY(8px);transition:all .3s}
-.shot:hover .cap,.shot:focus-visible .cap{opacity:1;transform:none}
-.shot.hide{display:none}
-.gallery-note{margin-top:22px;font-size:.88rem;color:var(--muted)}
+    /* Bastidores */
+    .about { padding: 100px 0; background: var(--ivory); }
+    .about-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .about h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.08; letter-spacing: -.04em; margin: 14px 0 18px; }
+    .about p { color: var(--ink-soft); margin: 0 0 14px; }
+    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+    .about-stats div { padding: 16px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; text-align: center; font-size: .8rem; color: var(--ink-soft); font-weight: 650; }
+    .about-stats b { display: block; font-family: Georgia, serif; font-size: 1.5rem; color: var(--gold-deep); font-weight: 500; }
+    .about-media { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; position: relative; border: 1px solid rgba(182,140,72,.35); box-shadow: var(--shadow); background: radial-gradient(circle at 50% 38%, #fff, #ece7dc 70%); display: grid; place-items: center; color: var(--steel); }
+    .about-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-/* serviços */
-.services{background:var(--navy);color:#fff}
-.services .kicker{color:var(--cyan)}
-.services .sec-head p{color:#a9bdd3}
-.group{margin-top:44px}
-.group:first-of-type{margin-top:0}
-.group-title{display:flex;align-items:center;gap:14px;font-family:var(--head);font-size:1.25rem;margin-bottom:18px;letter-spacing:-.02em}
-.group-title::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.14)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,border-color .25s,background .25s}
-.card:hover{transform:translateY(-4px);border-color:rgba(53,182,214,.6);background:#164072}
-.card.feat{grid-column:span 2;background:linear-gradient(135deg,#1a5fb8,#12365c);border-color:rgba(53,182,214,.5)}
-.card h3{font-size:1.18rem;letter-spacing:-.02em}
-.card p{margin:0;color:#b4c6db;font-size:.92rem;flex:1}
-.card .pill{align-self:flex-start;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--cyan);padding:3px 10px;border-radius:999px}
-.card a{font-weight:700;font-size:.86rem;color:var(--cyan);margin-top:4px}
-.card a:hover{text-decoration:underline}
+    /* Como funciona */
+    .flow { padding: 100px 0; background: var(--porcelain); }
+    .flow h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin: 14px 0 36px; max-width: 700px; }
+    .flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .flow-card { padding: 28px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 8px 24px rgba(60,48,25,.05); }
+    .flow-card .n { font-family: Georgia, serif; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+    .flow-card h3 { margin: 14px 0 6px; font-family: Georgia, serif; font-weight: 500; font-size: 1.25rem; }
+    .flow-card p { margin: 0; color: var(--ink-soft); font-size: .94rem; }
 
-/* protocolo destaque */
-.proto{background:#fff}
-.proto-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.proto-img{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1/1;background:var(--sky)}
-.proto-img img{width:100%;height:100%;object-fit:cover}
-.proto h2{font-size:clamp(2rem,3.8vw,3rem);margin:12px 0 18px}
-.proto p{color:var(--muted);margin:0 0 14px}
-.facts{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:12px}
-.facts li{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--ice);border-radius:12px;font-size:.94rem}
-.facts li b{display:block;color:var(--navy);font-size:.95rem}
-.facts li span{color:var(--muted)}
-.facts svg{flex:none;width:22px;height:22px;margin-top:3px;color:var(--blue)}
+    /* FAQ */
+    .faq { padding: 100px 0; background: var(--card); border-top: 1px solid var(--line); }
+    .faq-wrap { max-width: 820px; margin-inline: auto; }
+    .faq h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.04em; margin: 14px 0 30px; }
+    details { border-bottom: 1px solid var(--line); }
+    summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 0; font-weight: 700; font-size: 1.02rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-family: Georgia, serif; font-size: 1.6rem; color: var(--gold); transition: transform .25s; line-height: 1; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { margin: 0 0 22px; color: var(--ink-soft); max-width: 700px; }
 
-/* sobre */
-.about{background:var(--ice)}
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
-.portrait{aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(150deg,#cfe1f5,#e9f2fc);display:grid;place-items:center;position:relative;box-shadow:0 24px 60px rgba(10,37,64,.16)}
-.portrait .mono{font-family:var(--head);font-size:4rem;font-weight:700;color:#9fbad8;letter-spacing:-.04em}
-.about-photo{position:relative}
-.about-photo .badge{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:14px;padding:14px 18px;box-shadow:0 12px 30px rgba(10,37,64,.18)}
-.badge b{display:block;font-family:var(--head);font-size:1.1rem;color:var(--navy)}
-.badge span{font-size:.8rem;color:var(--muted)}
-.about p.big{font-size:1.1rem;color:var(--ink)}
-.how{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
-.how li{display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);font-size:.94rem}
-.how b{color:var(--navy);font-family:var(--head);font-size:1rem;letter-spacing:-.01em}
-.how span{color:var(--muted)}
-.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.about h2{font-size:clamp(2rem,3.6vw,2.8rem);margin:12px 0 18px}
-.about p{color:var(--muted);margin:0 0 14px}
-.about .areas{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.areas span{padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.84rem;font-weight:600;color:var(--navy)}
+    /* CTA */
+    .cta { padding: 90px 0; background: var(--porcelain); }
+    .cta-panel { padding: 60px; border-radius: 26px; color: #f7f7f5; border: 1px solid rgba(214,179,106,.35); display: flex; align-items: center; justify-content: space-between; gap: 35px; box-shadow: 0 24px 70px rgba(0,0,0,.25);
+      background: radial-gradient(ellipse at 85% 15%, rgba(214,179,106,.2), transparent 42%), linear-gradient(120deg, #26292f, #15171b); }
+    .cta-panel .eyebrow { color: var(--gold-light); }
+    .cta-panel h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; margin: 13px 0; max-width: 640px; }
+    .cta-panel p { color: #adb1ba; margin: 0; max-width: 560px; }
+    .cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 210px; }
 
-/* faq */
-.faq-wrap{max-width:780px;margin-inline:auto}
-.faq-wrap .sec-head{max-width:none}
-details{border-bottom:1px solid var(--line)}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;font-weight:700;font-size:1.02rem}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"";width:12px;height:12px;border-right:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);transform:rotate(45deg) translateY(-3px);transition:transform .25s;flex:none}
-details[open] summary::after{transform:rotate(225deg) translate(-3px,0)}
-details p{margin:0 0 22px;color:var(--muted);max-width:680px}
+    .footer { border-top: 1px solid var(--line); padding: 30px 0; background: var(--ivory); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer p { margin: 0; color: var(--ink-soft); font-size: .78rem; }
+    .footer-links { display: flex; gap: 18px; font-size: .84rem; color: var(--ink-soft); }
+    .footer-links a:hover { color: var(--gold-deep); }
 
-/* cta */
-.cta{padding:0 0 96px}
-.cta-box{background:linear-gradient(120deg,var(--blue),#0f4a96);border-radius:28px;padding:60px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:36px;position:relative;overflow:hidden}
-.cta-box::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);box-shadow:0 0 0 50px rgba(255,255,255,.04)}
-.cta-box h2{font-size:clamp(1.9rem,3.6vw,2.8rem);max-width:600px;margin-bottom:12px}
-.cta-box p{margin:0;color:#cfe0f5;max-width:520px}
-.cta-actions{display:flex;flex-direction:column;gap:12px;min-width:230px;position:relative;z-index:1}
+    .float-wa { position: fixed; z-index: 60; right: 20px; bottom: max(20px, env(safe-area-inset-bottom)); width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; background: #20bd67; color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.28); transition: transform .2s; }
+    .float-wa:hover { transform: translateY(-4px) scale(1.04); }
+    .float-wa svg { width: 27px; height: 27px; fill: currentColor; }
 
-footer{background:var(--navy);color:#9db3cc;padding:34px 0;font-size:.85rem}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.foot .brand{color:#fff}
-.foot nav{display:flex;gap:20px}
-.foot a:hover{color:#fff}
+    /* Lightbox */
+    dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 94vh; overflow: visible; }
+    dialog.lightbox::backdrop { background: rgba(10,10,12,.88); backdrop-filter: blur(6px); }
+    .lightbox img { max-width: 92vw; max-height: 86vh; border-radius: 16px; border: 1px solid rgba(214,179,106,.4); }
+    .lightbox .close { position: absolute; top: -14px; right: -14px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: linear-gradient(120deg, #f0d99e, #c79b45); color: #1d170a; font-size: 1.3rem; font-weight: 800; cursor: pointer; }
 
-/* barra mobile */
-.mbar{display:none}
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 
-/* aviso de imagem faltando (só aparece no seu computador) */
-.missing{display:grid;place-items:center;text-align:center;padding:20px;min-height:180px;border:2px dashed #e0a14a;background:#fff7e8;color:#8a5a12;font-size:.82rem;font-weight:600;border-radius:12px}
-.frame .missing,.proto-img .missing{position:absolute;inset:0;border-radius:0}
-.portrait .missing{position:absolute;inset:0;border-radius:0}
-.portrait.noimg{background:linear-gradient(150deg,var(--sky),#fff)}
-
-/* detalhes visuais */
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000);mask-image:linear-gradient(90deg,transparent 30%,#000)}
-.card{position:relative;overflow:hidden}
-.card::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--cyan);transition:width .35s}
-.card:hover::before{width:100%}
-.shot{cursor:zoom-in}
-
-/* formulário de briefing */
-#brief{border:0;border-radius:22px;padding:0;width:min(560px,calc(100% - 24px));max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);box-shadow:0 30px 80px rgba(6,18,32,.45);color:var(--ink);background:#fff;margin:auto;overflow:auto}
-#brief::backdrop{background:rgba(6,18,32,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-.bf{padding:30px 28px 24px;display:grid;gap:18px;position:relative}
-.bf h2{font-size:1.65rem;margin:8px 0 6px}
-.bf .sub{margin:0;color:var(--muted);font-size:.93rem}
-.bf label,.bf legend{display:block;font-weight:700;font-size:.84rem;color:var(--navy);margin-bottom:7px;padding:0}
-.bf input[type=text],.bf select,.bf textarea{width:100%;font:inherit;font-size:.95rem;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
-.bf input:focus,.bf select:focus,.bf textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(26,111,212,.14)}
-.bf textarea{resize:vertical;min-height:84px}
-.bf fieldset{border:0;padding:0;margin:0;min-width:0}
-.bf .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips input{position:absolute;opacity:0;pointer-events:none}
-.chips label{margin:0;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;font-weight:600;font-size:.84rem;color:var(--muted);cursor:pointer;transition:all .2s}
-.chips label:hover{border-color:var(--blue);color:var(--blue)}
-.chips input:checked+label{background:var(--navy);border-color:var(--navy);color:#fff}
-.chips input:focus-visible+label{outline:3px solid var(--cyan);outline-offset:2px}
-.req{color:#c0392b}
-.bf-x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--ice);color:var(--ink);font-size:1.4rem;line-height:1;display:grid;place-items:center}
-.bf-x:hover{background:var(--sky)}
-.bf .btn{width:100%}
-.skip{margin:0;text-align:center;font-size:.82rem;color:var(--muted)}
-.skip a{color:var(--blue);font-weight:700;text-decoration:underline}
-.err{display:none;color:#c0392b;font-size:.82rem;margin-top:5px}
-.bad+.err{display:block}
-.bad{border-color:#c0392b!important}
-
-/* lightbox */
-#lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;color:#fff}
-#lb::backdrop{background:rgba(6,18,32,.94)}
-.lb{width:100%;height:100%;display:grid;grid-template-rows:1fr auto;padding:20px;gap:12px}
-.lb-stage{position:relative;display:grid;place-items:center;min-height:0}
-.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;touch-action:pan-y}
-.lb-cap{text-align:center;font-size:.9rem;color:#c3d3e6;padding-bottom:6px}
-.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;transition:background .2s}
-.lb button:hover{background:rgba(255,255,255,.2)}
-.lb button svg{width:22px;height:22px}
-.lb .x{top:6px;right:6px;z-index:2}
-.lb .p{left:6px;top:50%;transform:translateY(-50%)}
-.lb .n{right:6px;top:50%;transform:translateY(-50%)}
-
-.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
-
-@media(max-width:980px){
-  .hero-grid,.proto-grid,.about-grid{grid-template-columns:1fr;gap:44px}
-  .hero-photo{max-width:460px}
-  .tag{left:12px}
-  .flow-list{grid-template-columns:1fr 1fr;gap:34px 20px}
-  .flow-list::before{display:none}
-  .portrait,.about-photo{max-width:400px}
-  .card.feat{grid-column:auto}
-  .how li{grid-template-columns:1fr;gap:4px}
-}
-@media(max-width:820px){
-  .burger{display:grid}
-  .menu{position:fixed;inset:72px 0 auto;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:10px 20px 22px;box-shadow:0 20px 40px rgba(10,37,64,.15);transform:translateY(-130%);transition:transform .3s;color:var(--ink)}
-  .menu.open{transform:none}
-  .menu a:not(.btn){padding:15px 0;border-bottom:1px solid var(--line);color:var(--ink)!important}
-  .menu a:not(.btn)::after{display:none}
-  .menu .btn{margin-top:16px}
-  header.open-menu{background:#fff}
-  header.open-menu .brand{color:var(--navy)}
-  header.open-menu .burger{color:var(--navy);border-color:var(--line)}
-}
-@media(max-width:640px){
-  .wrap{width:min(var(--max),calc(100% - 32px))}
-  section{padding:68px 0}
-  .hero{padding-top:108px}
-  .hero-grid{padding-bottom:60px;gap:34px}
-  .hero-photo{max-width: min(100%, 390px)}
-  .tag{left:10px;bottom:18px;max-width:calc(100% - 20px)}
-  .hero-sign{align-items:flex-start;line-height:1.5}
-  .hero-cta .btn{flex:1 1 100%}
-  .flow-list{grid-template-columns:1fr}
-  .cta-box{flex-direction:column;align-items:flex-start;padding:38px 24px}
-  .cta-actions{width:100%}
-  .cta{padding-bottom:110px}
-  .bf{padding:26px 18px 20px}
-  .bf .row2{grid-template-columns:1fr}
-  .brand-text small{display:none}
-  .mbar{display:flex;position:fixed;z-index:45;left:0;right:0;bottom:0;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
-  .mbar.show{transform:none}
-  .mbar .btn{flex:1;min-height:46px}
-  .shot .cap{opacity:1;transform:none}
-  .gallery{columns:2 140px;column-gap:10px}
-  .shot{margin-bottom:10px}
-  .foot nav{flex-wrap:wrap}
-  .lb{padding:12px}
-  .lb button{width:42px;height:42px}
-  .bf{gap:15px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .rv{opacity:1;transform:none}
-}
-</style>
+    @media (max-width: 980px) {
+      .hero-grid, .split, .split.reverse, .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .split.reverse .media-col { order: 0; }
+      .media-col { position: static; max-width: 460px; }
+      .portrait { min-height: 460px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .flow-grid { grid-template-columns: 1fr; }
+      .about-media { max-width: 460px; }
+    }
+    @media (max-width: 720px) {
+      .container { width: min(100% - 34px, var(--max)); }
+      .nav { min-height: 68px; }
+      .toc { top: 68px; }
+      .brand-name small { display: none; }
+      .hero { padding: 120px 0 72px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .trust-item + .trust-item { border-left: 0; border-top: 1px solid var(--line); }
+      .type, .portfolio, .about, .flow, .faq { padding: 64px 0; }
+      .intro { padding-top: 64px; }
+      .gallery { gap: 12px; }
+      .cta-panel { flex-direction: column; align-items: flex-start; padding: 34px 24px; }
+      .cta-actions { width: 100%; }
+      .hero-actions .btn { flex: 1 1 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 <body>
 
-<header id="top">
-  <div class="wrap nav">
-    <a class="brand" href="#inicio" aria-label="Império das Próteses, início">
-      <span class="logo"><img src="logo-dente.png" alt="" width="46" height="46"></span>
-      <span class="brand-text"><b>Império das Próteses</b><small>Ronald Silva · Prótese dentária</small></span>
-    </a>
-    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="menu" id="menu" aria-label="Principal">
-      <a href="#trabalhos">Trabalhos</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#como">Como enviar</a>
-      <a href="#sobre">Ronald</a>
-      <a href="#duvidas">Dúvidas</a>
-      <a class="btn btn-wa" data-wa="Olá, Ronald! Sou dentista e gostaria de falar sobre um caso." href="#">WhatsApp</a>
+  <header class="site-header" id="topo">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Império das Próteses - início">
+        <span class="brand-mark">IP</span>
+        <span class="brand-name"><strong>Império das Próteses</strong><small>Estética • Precisão • Cuidado</small></span>
+      </a>
+      <a class="btn btn-primary" href="https://wa.me/559885184656?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Império das Próteses</span>
+          <h1>Precisão em cada detalhe. <span class="gold-text">Naturalidade em cada sorriso.</span></h1>
+          <p>Próteses dentárias feitas com atenção ao acabamento, à forma e à cor de cada peça. Veja trabalhos reais e entenda, com calma, como cada um é feito.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/559885184656?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar orçamento ↗</a>
+            <a class="btn btn-outline on-dark" href="#portfolio">Ver trabalhos reais</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="portrait-wrap">
+            <div class="portrait">
+              <div>
+                <strong class="serif" style="font-size:1.3rem;font-weight:500">Foto profissional</strong>
+                <small>Coloque ronaldfoto.jpeg na mesma pasta.</small>
+              </div>
+              <img src="ronaldfoto.jpeg" alt="Ronald Silva, responsável pelo laboratório" loading="eager" onerror="this.remove()">
+            </div>
+            <div class="badge">Ronald Silva <span>· Prótese dentária</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="container trust-grid">
+        <div class="trust-item"><b>✦</b> Atenção aos detalhes</div>
+        <div class="trust-item"><b>✦</b> Serviços especializados</div>
+        <div class="trust-item"><b>✦</b> Atendimento direto pelo WhatsApp</div>
+      </div>
+    </div>
+
+    <!-- ÍNDICE -->
+    <nav class="toc" aria-label="Seções do site">
+      <div class="container toc-inner">
+        <a href="#resina">Resina</a>
+        <a href="#estratificacao">Estratificações</a>
+        <a href="#implante">Sobre implante</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#bastidores">Bastidores</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato">Contato</a>
+      </div>
     </nav>
-  </div>
-</header>
 
-<main>
-<!-- HERO -->
-<section class="hero" id="inicio" style="padding-bottom:0">
-  <div class="wrap hero-grid">
-    <div class="rv">
-      <span class="kicker">Laboratório de prótese dentária</span>
-      <h1>Você tira o molde. <em>A prótese sai pronta</em> para o paciente.</h1>
-      <p class="lead">Próteses fixas e removíveis, sobre implante, facetas, coroas e enceramento de diagnóstico, feitas sob medida para dentistas e clínicas.</p>
-      <div class="hero-cta">
-        <a class="btn btn-wa" data-wa="Olá, Ronald! Sou dentista e quero enviar um caso para orçamento." href="#"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>Enviar um caso</a>
-        <a class="btn btn-line" href="#trabalhos">Ver trabalhos</a>
+    <section class="intro">
+      <div class="container intro-box reveal">
+        <span class="eyebrow">Antes de começar</span>
+        <h2>Entenda cada tipo de prótese, <span class="gold-text">sem pressa.</span></h2>
+        <p>Cada trabalho abaixo explica o que é, para quem costuma ser indicado, como é feito e quais cuidados ajudam na conservação. A indicação do tratamento ideal sempre depende da avaliação do dentista responsável pelo seu caso.</p>
       </div>
-      <div class="hero-sign">Ronald Silva · <b>prótese dentária, estética e reabilitação oral</b></div>
-    </div>
-    <div class="hero-photo rv">
-      <div class="frame">
-        <img src="logoronald2.png" alt="Ronald Silva, profissional responsável pelo laboratório Império das Próteses" width="800" height="1000" fetchpriority="high" onerror="imgFail(this)">
+    </section>
+
+    <!-- 1. RESINA — foto principal: p1 | miniaturas: p2, p3 -->
+    <section class="type" id="resina">
+      <div class="container split">
+        <div class="media-col reveal">
+          <div class="media">
+            <div><strong>Próteses em resina</strong><small>Coloque p1.jpeg na mesma pasta</small></div>
+            <img src="p1.jpeg" alt="Prótese em resina segurada na mão" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="thumbs">
+            <button type="button" data-zoom="p2.jpeg" aria-label="Ampliar foto"><img src="p2.jpeg" alt="Prótese em resina, outro ângulo" loading="lazy" onerror="this.parentNode.remove()"></button>
+            <button type="button" data-zoom="p3.jpeg" aria-label="Ampliar foto"><img src="p3.jpeg" alt="Detalhe da prótese em resina" loading="lazy" onerror="this.parentNode.remove()"></button>
+          </div>
+          <p class="caption">Trabalhos realizados no laboratório.</p>
+        </div>
+        <div class="reveal">
+          <span class="type-num">01</span>
+          <h2>Próteses em <span class="gold-text">resina</span></h2>
+          <p class="lead">Peças confeccionadas em resina, material muito utilizado em próteses por permitir bom ajuste, acabamento cuidadoso e personalização da cor e da forma.</p>
+          <p>Podem ser usadas para repor um ou vários dentes, conforme a necessidade avaliada pelo dentista. O trabalho de laboratório busca devolver harmonia ao sorriso, respeitando o formato da boca e as características de cada paciente.</p>
+          <div class="for-whom">
+            <h3>Indicada para</h3>
+            <p>Pessoas que precisam repor dentes ausentes e buscam uma solução com bom acabamento estético. A indicação é sempre definida pelo dentista.</p>
+          </div>
+          <h3 class="sub">Pontos de atenção na confecção</h3>
+          <ul class="ticks">
+            <li>Escolha da cor e do formato conforme o caso</li>
+            <li>Acabamento e polimento cuidadosos</li>
+            <li>Ajuste feito a partir das informações enviadas pelo profissional</li>
+          </ul>
+          <h3 class="sub">Como o trabalho é feito</h3>
+          <ol class="steps">
+            <li><div><b>Recebimento do caso</b>Análise das informações e do material enviados.</div></li>
+            <li><div><b>Montagem e confecção</b>Modelagem da peça com atenção à forma e à posição.</div></li>
+            <li><div><b>Acabamento e polimento</b>Ajustes finais para conforto e estética.</div></li>
+            <li><div><b>Entrega</b>Conferência final antes de enviar o trabalho.</div></li>
+          </ol>
+          <div class="care">
+            <h3>Cuidados e conservação</h3>
+            <p>Higienize conforme a orientação do seu dentista e evite produtos abrasivos. Consultas de revisão ajudam a manter o ajuste e o conforto.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/559885184656?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20pr%C3%B3teses%20em%20resina." target="_blank" rel="noopener">Perguntar sobre resina ↗</a>
+        </div>
       </div>
-      <div class="tag"><b>Ronald Silva</b><span>À frente do Império das Próteses</span></div>
-    </div>
-  </div>
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track" id="ticker"></div>
-  </div>
-</section>
+    </section>
 
-<!-- TRABALHOS -->
-<section id="trabalhos">
-  <div class="wrap">
-    <div class="work-top rv">
-      <div class="sec-head">
-        <span class="kicker">Trabalhos</span>
-        <h2>O que sai do laboratório</h2>
-        <p>Peças reais, feitas para os casos dos dentistas parceiros. Toque em uma foto para ampliar.</p>
+    <!-- 2. ESTRATIFICAÇÃO — foto principal: p4 | miniaturas: p5 -->
+    <section class="type" id="estratificacao">
+      <div class="container split reverse">
+        <div class="media-col reveal">
+          <div class="media">
+            <div><strong>Estratificações</strong><small>Coloque p4.jpeg na mesma pasta</small></div>
+            <img src="p4.jpeg" alt="Prótese com estratificação segurada na mão" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="thumbs">
+            <button type="button" data-zoom="p5.jpeg" aria-label="Ampliar foto"><img src="p5.jpeg" alt="Estratificação, detalhe dos dentes" loading="lazy" onerror="this.parentNode.remove()"></button>
+          </div>
+          <p class="caption">Trabalhos realizados no laboratório.</p>
+        </div>
+        <div class="reveal">
+          <span class="type-num">02</span>
+          <h2><span class="gold-text">Estratificações</span></h2>
+          <p class="lead">Técnica que constrói a peça em camadas, reproduzindo variações de cor, translucidez e brilho que existem nos dentes naturais.</p>
+          <p>Em vez de uma cor única e uniforme, cada camada é trabalhada para que a peça se aproxime da aparência dos dentes ao redor, buscando um resultado mais natural e harmônico.</p>
+          <div class="for-whom">
+            <h3>Indicada para</h3>
+            <p>Casos em que a naturalidade estética é prioridade, principalmente em dentes bem visíveis no sorriso. A indicação depende da avaliação do dentista.</p>
+          </div>
+          <h3 class="sub">O que essa técnica valoriza</h3>
+          <ul class="ticks">
+            <li>Gradação de cor do colo ao bordo do dente</li>
+            <li>Translucidez e brilho próximos aos dos dentes vizinhos</li>
+            <li>Caracterizações discretas, quando necessário</li>
+          </ul>
+          <h3 class="sub">Como o trabalho é feito</h3>
+          <ol class="steps">
+            <li><div><b>Análise da cor</b>Leitura das referências de cor enviadas para o caso.</div></li>
+            <li><div><b>Construção em camadas</b>Aplicação gradual de materiais com diferentes características.</div></li>
+            <li><div><b>Caracterização</b>Detalhes de textura e brilho para aproximar do natural.</div></li>
+            <li><div><b>Acabamento final</b>Polimento e conferência estética.</div></li>
+          </ol>
+          <div class="care">
+            <h3>Cuidados e conservação</h3>
+            <p>Mantenha a higiene diária e siga as orientações do dentista. Evite usar a peça para abrir embalagens ou morder objetos duros.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/559885184656?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20estratifica%C3%A7%C3%B5es." target="_blank" rel="noopener">Perguntar sobre estratificação ↗</a>
+        </div>
       </div>
-      <div class="filters" id="filters" role="group" aria-label="Filtrar trabalhos"></div>
-    </div>
-    <div class="gallery" id="gallery"></div>
-    <p class="gallery-note">Quer ver mais trabalhos? O Instagram é atualizado com frequência. <a href="https://www.instagram.com/imperio_das_protesesslz/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700">@imperio_das_protesesslz ↗</a></p>
-  </div>
-</section>
+    </section>
 
-<!-- PROTOCOLO -->
-<section class="proto" id="protocolo" style="padding-top:0">
-  <div class="wrap proto-grid">
-    <div class="proto-img rv">
-      <img src="p2.jpeg" alt="Detalhe de protocolo sobre implante com barra" loading="lazy" onerror="imgFail(this)">
-    </div>
-    <div class="rv">
-      <span class="kicker">Em destaque</span>
-      <h2>Protocolo com barra sobre implante</h2>
-      <p>Prótese total apoiada em implantes por uma estrutura de barra, para o paciente que perdeu todos os dentes de uma arcada. O trabalho do laboratório é fazer a estrutura e a prótese assentarem com precisão sobre o que você instalou.</p>
-      <ul class="facts">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg><div><b>Passividade e encaixe</b><span>A estrutura é conferida sobre os componentes antes de seguir para a estética.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg><div><b>Estética combinada com você</b><span>Cor, formato e linha do sorriso alinhados pelo WhatsApp antes da confecção.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg><div><b>Pensado para higienização</b><span>Acabamento que facilita a limpeza pelo paciente.</span></div></li>
-      </ul>
-      <a class="btn btn-blue" data-wa data-svc="Protocolo com barra" href="#">Pedir orçamento de protocolo</a>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section class="services" id="servicos">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Serviços</span>
-      <h2>Tudo o que a clínica precisa em prótese</h2>
-      <p>Da peça unitária à reabilitação completa. Se o seu caso não está na lista, chame e a gente conversa.</p>
-    </div>
-    <div id="groups"></div>
-  </div>
-</section>
-
-<!-- COMO ENVIAR -->
-<section class="flow" id="como">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Como enviar</span>
-      <h2>Do consultório ao laboratório em quatro passos</h2>
-      <p>O fluxo é simples. O que importa é que as informações do caso cheguem completas.</p>
-    </div>
-    <ol class="flow-list rv">
-      <li><h3>Você moldou</h3><p>Com o molde pronto, chame no WhatsApp e conte o que o caso pede.</p></li>
-      <li><h3>Combinamos o caso</h3><p>Tipo de prótese, cor, formato e observações. Fotos ajudam bastante.</p></li>
-      <li><h3>Confecção</h3><p>Modelagem, acabamento e conferência da peça no laboratório.</p></li>
-      <li><h3>Entrega</h3><p>A peça volta para você, pronta para provar e instalar no paciente.</p></li>
-    </ol>
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section class="about" id="sobre">
-  <div class="wrap about-grid">
-    <div class="about-photo rv">
-      <div class="portrait">
-        <img src="ronaldfoto.jpeg" alt="Ronald Silva, responsável pelo laboratório" loading="lazy" onerror="imgFail(this)">
-        <span class="mono">RS</span>
+    <!-- 3. IMPLANTE — foto principal: p6 -->
+    <section class="type" id="implante">
+      <div class="container split">
+        <div class="media-col reveal">
+          <div class="media">
+            <div><strong>Próteses sobre implante</strong><small>Coloque p6.jpeg na mesma pasta</small></div>
+            <img src="p6.jpeg" alt="Prótese sobre implante segurada na mão" loading="lazy" onerror="this.remove()">
+          </div>
+          <p class="caption">Trabalho realizado no laboratório.</p>
+        </div>
+        <div class="reveal">
+          <span class="type-num">03</span>
+          <h2>Próteses sobre <span class="gold-text">implante</span></h2>
+          <p class="lead">Peças fixadas sobre implantes dentários já instalados pelo dentista, repondo a parte visível do dente.</p>
+          <p>O implante funciona como base; a prótese é a parte que aparece no sorriso. Por isso, o trabalho exige planejamento, boa adaptação e acabamento preciso, sempre em conjunto com o profissional que acompanha o paciente.</p>
+          <div class="for-whom">
+            <h3>Indicada para</h3>
+            <p>Pessoas que já têm implantes e precisam da prótese que será colocada sobre eles. Quem avalia e planeja o caso é o dentista responsável.</p>
+          </div>
+          <h3 class="sub">Pontos de atenção na confecção</h3>
+          <ul class="ticks">
+            <li>Adaptação precisa ao componente do implante</li>
+            <li>Forma e posição pensadas para estética e conforto</li>
+            <li>Acabamento que facilita a higienização</li>
+          </ul>
+          <h3 class="sub">Como o trabalho é feito</h3>
+          <ol class="steps">
+            <li><div><b>Recebimento do caso</b>Conferência das informações e do material enviados pelo dentista.</div></li>
+            <li><div><b>Planejamento</b>Definição da forma e da posição da peça.</div></li>
+            <li><div><b>Confecção</b>Execução com atenção ao encaixe e à estética.</div></li>
+            <li><div><b>Acabamento e entrega</b>Revisão final antes do envio.</div></li>
+          </ol>
+          <div class="care">
+            <h3>Cuidados e conservação</h3>
+            <p>A higiene em volta do implante é essencial. Siga as orientações do dentista e mantenha as consultas de revisão em dia.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/559885184656?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20pr%C3%B3teses%20sobre%20implante." target="_blank" rel="noopener">Perguntar sobre implante ↗</a>
+        </div>
       </div>
-      <div class="badge"><b>Ronald Silva</b><span>Prótese dentária · Estética · Reabilitação oral</span></div>
-    </div>
-    <div class="rv">
-      <span class="kicker">Quem faz</span>
-      <h2>O profissional por trás de cada peça</h2>
-      <p class="big">Sou o Ronald e trabalho com prótese dentária, estética e reabilitação oral. Meu trabalho começa quando o dentista termina a moldagem: recebo o caso, converso sobre o que o paciente precisa e transformo isso em uma peça que encaixa, é confortável e combina com o sorriso dele.</p>
-      <p>Atendo dentistas e clínicas, de uma coroa unitária a uma reabilitação completa sobre implantes. Fixa ou removível, frontal ou posterior, o cuidado é o mesmo: entender o caso antes de começar.</p>
-      <ul class="how">
-        <li><b>Conversa antes da confecção</b><span>Cor, formato e dúvidas do caso são alinhados com você antes de a peça ser feita.</span></li>
-        <li><b>Encaixe e cor conferidos</b><span>A peça é revisada antes de sair do laboratório, para chegar pronta para provar.</span></li>
-        <li><b>Contato direto</b><span>Você fala com quem faz a peça, sem intermediários.</span></li>
-      </ul>
-      <div class="areas"><span>Prótese fixa</span><span>Prótese removível</span><span>Sobre implante</span><span>Estética</span><span>Reabilitação oral</span></div>
-      <a class="btn btn-blue" data-wa data-svc="" href="#" style="margin-top:26px">Falar com o Ronald</a>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FAQ -->
-<section id="duvidas">
-  <div class="wrap faq-wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Dúvidas</span>
-      <h2>Perguntas de quem vai enviar o primeiro caso</h2>
-    </div>
-    <details><summary>Como peço um orçamento?</summary><p>Chame no WhatsApp, diga qual prótese precisa e, se puder, mande fotos do caso. O retorno vem pela própria conversa.</p></details>
-    <details><summary>O que preciso enviar junto com o molde?</summary><p>Informe o tipo de prótese, a cor desejada e qualquer observação importante sobre o paciente. Fotos do sorriso e do caso facilitam muito a escolha de cor e formato.</p></details>
-    <details><summary>Atende pessoas físicas?</summary><p>O trabalho é voltado para dentistas e clínicas. O paciente é sempre atendido pelo profissional que faz o molde e a instalação.</p></details>
-    <details><summary>Qual o prazo de entrega?</summary><p>Depende do tipo de prótese e da complexidade do caso. Informe o que precisa pelo WhatsApp e você recebe a estimativa antes de fechar.</p></details>
-    <details><summary>Posso ver trabalhos anteriores?</summary><p>Sim. A galeria acima mostra casos reais e o Instagram traz mais exemplos.</p></details>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta" id="contato">
-  <div class="wrap">
-    <div class="cta-box rv">
-      <div>
-        <h2>Tem um caso para enviar?</h2>
-        <p>Chame o Ronald no WhatsApp e conte o que o paciente precisa.</p>
+    <!-- PORTFÓLIO (escuro, dá ritmo) -->
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">Portfólio</span>
+          <h2>Trabalhos <span class="gold-text">reais</span>, de perto.</h2>
+          <p class="sub-p">Algumas das peças produzidas no laboratório. Toque em uma foto para ampliar.</p>
+        </div>
+        <div class="gallery reveal">
+          <button type="button" data-zoom="p1.jpeg" aria-label="Ampliar foto 1"><img src="p1.jpeg" alt="Prótese dentária, trabalho 1" loading="lazy" onerror="this.parentNode.remove()"></button>
+          <button type="button" data-zoom="p2.jpeg" aria-label="Ampliar foto 2"><img src="p2.jpeg" alt="Prótese dentária, trabalho 2" loading="lazy" onerror="this.parentNode.remove()"></button>
+          <button type="button" data-zoom="p3.jpeg" aria-label="Ampliar foto 3"><img src="p3.jpeg" alt="Prótese dentária, trabalho 3" loading="lazy" onerror="this.parentNode.remove()"></button>
+          <button type="button" data-zoom="p4.jpeg" aria-label="Ampliar foto 4"><img src="p4.jpeg" alt="Prótese dentária, trabalho 4" loading="lazy" onerror="this.parentNode.remove()"></button>
+          <button type="button" data-zoom="p5.jpeg" aria-label="Ampliar foto 5"><img src="p5.jpeg" alt="Prótese dentária, trabalho 5" loading="lazy" onerror="this.parentNode.remove()"></button>
+          <button type="button" data-zoom="p6.jpeg" aria-label="Ampliar foto 6"><img src="p6.jpeg" alt="Prótese dentária, trabalho 6" loading="lazy" onerror="this.parentNode.remove()"></button>
+        </div>
+        <div class="gallery-cta reveal">
+          <a class="btn btn-primary" href="https://www.instagram.com/imperio_das_protesesslz/" target="_blank" rel="noopener">Ver mais no Instagram ↗</a>
+          <span>Novos trabalhos são publicados por lá.</span>
+        </div>
       </div>
-      <div class="cta-actions">
-        <a class="btn btn-wa" data-wa="Olá, Ronald! Vim pelo site e gostaria de falar sobre um caso." href="#"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
-        <a class="btn btn-line" href="https://www.instagram.com/imperio_das_protesesslz/" target="_blank" rel="noopener">Ver o Instagram ↗</a>
+    </section>
+
+    <!-- BASTIDORES -->
+    <section class="about" id="bastidores">
+      <div class="container about-grid">
+        <div class="reveal">
+          <span class="eyebrow">Bastidores</span>
+          <h2>Por trás de cada peça, <span class="gold-text">um laboratório.</span></h2>
+          <p>Cada trabalho passa pela bancada com atenção à forma, à cor e ao ajuste. O objetivo é entregar ao dentista uma peça pronta para provar, com acabamento conferido antes do envio.</p>
+          <p>O contato é direto: você fala pelo WhatsApp, tira dúvidas e acompanha o combinado sem intermediários.</p>
+          <div class="about-stats">
+            <div><b>3</b>tipos de trabalho</div>
+            <div><b>1:1</b>atendimento direto</div>
+            <div><b>100%</b>conferido antes de enviar</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="about-media">
+            <small>Coloque trabalho.jpeg na mesma pasta</small>
+            <img src="trabalho.jpeg" alt="Bancada do laboratório de próteses" loading="lazy" onerror="this.remove()">
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-</main>
+    </section>
 
-<footer>
-  <div class="wrap foot">
-    <a class="brand" href="#inicio"><span class="logo"><img src="logo-dente.png" alt="" width="46" height="46" loading="lazy"></span><span class="brand-text"><b>Império das Próteses</b></span></a>
-    <nav aria-label="Rodapé">
-      <a href="https://www.instagram.com/imperio_das_protesesslz/" target="_blank" rel="noopener">Instagram</a>
-      <a data-wa="Olá, Ronald!" href="#">WhatsApp</a>
-    </nav>
-    <span>© <span id="year"></span> Ronald Silva · Império das Próteses</span>
-  </div>
-</footer>
-
-<div class="mbar" id="mbar">
-  <a class="btn btn-wa" data-wa="Olá, Ronald! Sou dentista e quero enviar um caso." href="#"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>Enviar caso</a>
-  <a class="btn btn-line dark" href="#servicos">Serviços</a>
-</div>
-
-<!-- Briefing antes do WhatsApp -->
-<dialog id="brief" aria-labelledby="bt">
-  <form class="bf" id="briefForm" novalidate>
-    <button type="button" class="bf-x" id="bfX" aria-label="Fechar">×</button>
-    <div>
-      <span class="kicker">Antes de chamar</span>
-      <h2 id="bt">Conte rápido sobre o caso</h2>
-      <p class="sub">Leva menos de um minuto. Assim o Ronald já abre a conversa sabendo do que se trata.</p>
-    </div>
-    <div class="row2">
-      <div><label for="fNome">Seu nome <span class="req">*</span></label><input id="fNome" type="text" autocomplete="name"><span class="err">Informe seu nome.</span></div>
-      <div><label for="fClin">Clínica e cidade</label><input id="fClin" type="text" autocomplete="organization" placeholder="Ex.: Clínica Sorriso, sua cidade"></div>
-    </div>
-    <div class="row2">
-      <div><label for="fSvc">Tipo de trabalho <span class="req">*</span></label><select id="fSvc"></select><span class="err">Escolha o tipo de trabalho.</span></div>
-      <div><label for="fQtd">Quantidade</label>
-        <select id="fQtd"><option value="">Selecione</option><option>1 elemento</option><option>2 a 3 elementos</option><option>4 a 6 elementos</option><option>Arcada completa</option><option>Ainda não sei</option></select></div>
-    </div>
-    <fieldset>
-      <legend>Como está o caso?</legend>
-      <div class="chips">
-        <input type="radio" name="molde" id="m1" value="Já estou com o molde"><label for="m1">Já estou com o molde</label>
-        <input type="radio" name="molde" id="m2" value="Ainda vou moldar"><label for="m2">Ainda vou moldar</label>
-        <input type="radio" name="molde" id="m3" value="Só quero um orçamento"><label for="m3">Só quero um orçamento</label>
+    <!-- COMO FUNCIONA -->
+    <section class="flow" id="como-funciona">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Do primeiro contato à entrega, <span class="gold-text">em três passos.</span></h2>
+        </div>
+        <div class="flow-grid">
+          <div class="flow-card reveal"><div class="n">01</div><h3>Você chama no WhatsApp</h3><p>Conte o que precisa e envie as informações do caso.</p></div>
+          <div class="flow-card reveal"><div class="n">02</div><h3>Recebe o orçamento</h3><p>Valor e prazo combinados antes de começar.</p></div>
+          <div class="flow-card reveal"><div class="n">03</div><h3>Produção e entrega</h3><p>Confecção, acabamento, conferência final e envio.</p></div>
+        </div>
       </div>
-    </fieldset>
-    <fieldset>
-      <legend>Prazo</legend>
-      <div class="chips">
-        <input type="radio" name="prazo" id="p1r" value="Sem pressa"><label for="p1r">Sem pressa</label>
-        <input type="radio" name="prazo" id="p2r" value="Para esta semana"><label for="p2r">Para esta semana</label>
-        <input type="radio" name="prazo" id="p3r" value="Urgente"><label for="p3r">Urgente</label>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="duvidas">
+      <div class="container faq-wrap">
+        <span class="eyebrow">Dúvidas frequentes</span>
+        <h2>Respostas para as perguntas <span class="gold-text">mais comuns.</span></h2>
+        <details><summary>Como faço para solicitar um orçamento?</summary><p>Basta chamar pelo WhatsApp, explicar o que você precisa e enviar as informações do caso. O retorno é feito diretamente por lá.</p></details>
+        <details><summary>Preciso levar um pedido do dentista?</summary><p>Em geral, o trabalho parte das informações do profissional que acompanha o paciente. Pelo WhatsApp você confirma o que é necessário para o seu caso.</p></details>
+        <details><summary>Qual prótese é a melhor para mim?</summary><p>Não existe uma única resposta. A escolha depende da avaliação clínica, e quem faz essa indicação é o dentista responsável.</p></details>
+        <details><summary>Quanto tempo leva para ficar pronto?</summary><p>O prazo varia conforme o tipo de trabalho e a complexidade do caso. Consulte pelo WhatsApp para receber a estimativa.</p></details>
+        <details><summary>Posso ver exemplos de trabalhos já feitos?</summary><p>Sim. A seção de portfólio mostra peças reais, e o Instagram traz mais trabalhos realizados.</p></details>
       </div>
-    </fieldset>
-    <div><label for="fObs">Algo importante sobre o caso?</label><textarea id="fObs" placeholder="Cor, material, dente específico, dúvida..."></textarea></div>
-    <button class="btn btn-wa" type="submit"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>Continuar no WhatsApp</button>
-    <p class="skip">Prefere ir direto? <a href="https://wa.me/559885184656" target="_blank" rel="noopener">Abrir a conversa sem preencher</a></p>
-  </form>
-</dialog>
+    </section>
 
-<!-- Lightbox -->
-<dialog id="lb" aria-label="Foto ampliada">
-  <div class="lb">
-    <div class="lb-stage">
-      <button class="x" id="lbX" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      <button class="p" id="lbP" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <img id="lbImg" alt="">
-      <button class="n" id="lbN" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    <!-- CTA -->
+    <section class="cta" id="contato">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <span class="eyebrow">Vamos conversar?</span>
+            <h2>O próximo passo começa com uma <span class="gold-text">mensagem.</span></h2>
+            <p>Tire dúvidas, conheça os serviços ou peça informações sobre orçamento.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://wa.me/559885184656?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Imp%C3%A9rio%20das%20Pr%C3%B3teses%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">Conversar no WhatsApp ↗</a>
+            <a class="btn btn-outline on-dark" href="https://www.instagram.com/imperio_das_protesesslz/" target="_blank" rel="noopener">Acessar Instagram ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio"><span class="brand-mark">IP</span><span class="brand-name"><strong>Império das Próteses</strong></span></a>
+      <p>© <span id="year"></span> Império das Próteses. Todos os direitos reservados.</p>
+      <div class="footer-links"><a href="https://www.instagram.com/imperio_das_protesesslz/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/559885184656" target="_blank" rel="noopener">WhatsApp</a></div>
     </div>
-    <div class="lb-cap" id="lbCap"></div>
-  </div>
-</dialog>
+  </footer>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l5.9-1.5A11.8 11.8 0 0 0 20.5 3.5zM12 21a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.5.9.9-3.4-.2-.4A9.8 9.8 0 1 1 12 21zm5.4-7.3c-.3-.2-1.7-.9-2-.9s-.5-.2-.7.2-.8.9-1 1.1-.4.2-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6s0-.4 0-.6-.7-1.6-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.2 1.4 3.4 2.4 3.7 5.8 5c.8.3 1.4.5 1.9.6.8.2 1.5.2 2.1.1.6-.1 1.7-.7 1.9-1.4s.2-1.3.2-1.4-.2-.2-.5-.4z"/></symbol>
-</svg>
+  <a class="float-wa" href="https://wa.me/559885184656?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Imp%C3%A9rio%20das%20Pr%C3%B3teses." target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l5.9-1.5A11.8 11.8 0 0 0 20.5 3.5zM12 21a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.5.9.9-3.4-.2-.4A9.8 9.8 0 1 1 12 21zm5.4-7.3c-.3-.2-1.7-.9-2-.9s-.5-.2-.7.2-.8.9-1 1.1-.4.2-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6s0-.4 0-.6-.7-1.6-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.2 1.4 3.4 2.4 3.7 5.8 5c.8.3 1.4.5 1.9.6.8.2 1.5.2 2.1.1.6-.1 1.7-.7 1.9-1.4s.2-1.3.2-1.4-.2-.2-.5-.4z"/></svg>
+  </a>
 
-<script>
-/* ============ DADOS — edite só aqui ============ */
-const WA = "559885184656";
+  <dialog class="lightbox" id="lightbox">
+    <button class="close" type="button" aria-label="Fechar">✕</button>
+    <img id="lightbox-img" src="" alt="Foto ampliada">
+  </dialog>
 
-// Para adicionar fotos: coloque o arquivo na pasta e acrescente uma linha.
-// cat = categoria do filtro (aparece sozinho quando houver 2 ou mais).
-const PHOTOS = [
-  { src: "p1.jpeg", cat: "Protocolo sobre implante", alt: "Protocolo com barra sobre implante" },
-  { src: "p2.jpeg", cat: "Protocolo sobre implante", alt: "Protocolo com barra sobre implante, detalhe" },
-  { src: "p3.jpeg", cat: "Protocolo sobre implante", alt: "Protocolo com barra sobre implante, vista 3" },
-  { src: "p4.jpeg", cat: "Protocolo sobre implante", alt: "Protocolo com barra sobre implante, vista 4" },
-  { src: "p5.jpeg", cat: "Protocolo sobre implante", alt: "Protocolo com barra sobre implante, vista 5" },
-  { src: "p6.jpeg", cat: "Protocolo sobre implante", alt: "Protocolo com barra sobre implante, vista 6" }
-];
+  <script>
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 12), { passive: true });
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-// Para adicionar serviços: acrescente um item no grupo certo.
-const GROUPS = [
-  { title: "Sobre implante", items: [
-    { name: "Protocolo com barra", feat: true, tag: "Destaque", text: "Prótese total apoiada em implantes por estrutura de barra. Confecção sobre os componentes que você instalou.", msg: "protocolo com barra sobre implante" },
-    { name: "Prótese sobre implante", text: "Peças que vão sobre implantes já instalados, repondo a parte visível do dente com atenção ao encaixe e à estética.", msg: "prótese sobre implante" }
-  ]},
-  { title: "Próteses fixas e estética", items: [
-    { name: "Coroas unitárias", text: "Coroa para um dente, com forma, cor e contato ajustados aos vizinhos.", msg: "coroas unitárias" },
-    { name: "Facetas", text: "Lâminas finas para a face visível do dente, quando a prioridade é estética.", msg: "facetas" },
-    { name: "Próteses frontais", text: "Trabalho na região do sorriso, onde cor, translucidez e posição aparecem mais.", msg: "próteses frontais" }
-  ]},
-  { title: "Próteses removíveis", items: [
-    { name: "Parcial removível grampeada", text: "Prótese que repõe alguns dentes e se apoia nos dentes remanescentes por grampos.", msg: "prótese parcial removível grampeada" },
-    { name: "Prótese flexível", text: "Base em material flexível, mais leve e com grampos discretos, indicada conforme o caso.", msg: "prótese flexível" },
-    { name: "Prótese total", text: "Dentadura para o paciente sem dentes na arcada, com atenção a estética e estabilidade.", msg: "prótese total" }
-  ]},
-  { title: "Planejamento", items: [
-    { name: "Enceramento de diagnóstico", text: "Modelagem em cera sobre o modelo para planejar forma e proporção antes de iniciar o tratamento.", msg: "enceramento de diagnóstico" }
-  ]}
-];
+    const reveal = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); reveal.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
 
-/* ============ helpers ============ */
-const $ = (s, c = document) => c.querySelector(s);
-const wa = t => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
-/* Links de WhatsApp: sem JS abrem a conversa direto; com JS abrem antes o formulário de briefing */
-const fixLinks = () => document.querySelectorAll("[data-wa]").forEach(a => {
-  a.href = wa(a.dataset.wa || "Olá, Ronald! Sou dentista e gostaria de falar sobre um caso.");
-  a.target = "_blank"; a.rel = "noopener";
-});
-$("#year").textContent = new Date().getFullYear();
+    const links = [...document.querySelectorAll('.toc a')];
+    const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = map.get(e.target.id);
+        if (a) { a.classList.add('active'); a.scrollIntoView({ inline: 'center', block: 'nearest' }); }
+      }
+    }), { rootMargin: '-40% 0px -55% 0px' });
+    map.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
 
-/* faixa de serviços */
-const names = GROUPS.flatMap(g => g.items.map(i => i.name));
-$("#ticker").innerHTML = [...names, ...names].map(n => `<span>${n}</span>`).join("");
-
-/* serviços */
-$("#groups").innerHTML = GROUPS.map(g => `
-  <div class="group rv">
-    <div class="group-title">${g.title}</div>
-    <div class="cards">${g.items.map(i => `
-      <article class="card${i.feat ? " feat" : ""}">
-        ${i.tag ? `<span class="pill">${i.tag}</span>` : ""}
-        <h3>${i.name}</h3>
-        <p>${i.text}</p>
-        <a href="${wa(`Olá, Ronald! Quero um orçamento de ${i.msg}.`)}" data-wa data-svc="${i.name}" target="_blank" rel="noopener">Pedir orçamento →</a>
-      </article>`).join("")}
-    </div>
-  </div>`).join("");
-
-/* galeria + filtros */
-const gal = $("#gallery"), fil = $("#filters");
-gal.innerHTML = PHOTOS.map((p, i) => `
-  <button class="shot" data-i="${i}" data-cat="${p.cat}" aria-label="Ampliar: ${p.alt}">
-    <img src="${p.src}" alt="${p.alt}" loading="lazy" onerror="imgFail(this)">
-    <span class="cap">${p.cat}</span>
-  </button>`).join("");
-const cats = [...new Set(PHOTOS.map(p => p.cat))];
-if (cats.length > 1) {
-  fil.innerHTML = ["Todos", ...cats].map((c, i) => `<button aria-pressed="${i === 0}" data-c="${c}">${c}</button>`).join("");
-  fil.addEventListener("click", e => {
-    const b = e.target.closest("button"); if (!b) return;
-    fil.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
-    gal.querySelectorAll(".shot").forEach(s => s.classList.toggle("hide", b.dataset.c !== "Todos" && s.dataset.cat !== b.dataset.c));
-  });
-}
-
-/* lightbox */
-const lb = $("#lb"), lbImg = $("#lbImg"), lbCap = $("#lbCap");
-let cur = 0;
-const visible = () => [...gal.querySelectorAll(".shot:not(.hide)")];
-function show(k) {
-  const list = visible(); if (!list.length) return;
-  cur = (k + list.length) % list.length;
-  const s = list[cur], p = PHOTOS[+s.dataset.i];
-  lbImg.src = s.querySelector("img").src; lbImg.alt = p.alt;
-  lbCap.textContent = `${p.alt}  ·  ${cur + 1} de ${list.length}`;
-}
-gal.addEventListener("click", e => {
-  const s = e.target.closest(".shot"); if (!s) return;
-  show(visible().indexOf(s)); lb.showModal();
-});
-$("#lbX").onclick = () => lb.close();
-$("#lbP").onclick = () => show(cur - 1);
-$("#lbN").onclick = () => show(cur + 1);
-lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-stage")) lb.close(); });
-lb.addEventListener("keydown", e => { if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
-let x0 = null;
-lbImg.addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
-lbImg.addEventListener("touchend", e => {
-  if (x0 === null) return;
-  const d = e.changedTouches[0].clientX - x0;
-  if (Math.abs(d) > 50) show(cur + (d < 0 ? 1 : -1));
-  x0 = null;
-});
-
-/* header, menu, barra mobile */
-const header = $("#top"), menu = $("#menu"), burger = $("#burger"), mbar = $("#mbar");
-const onScroll = () => {
-  header.classList.toggle("solid", scrollY > 30);
-  mbar.classList.toggle("show", scrollY > 500);
-};
-addEventListener("scroll", onScroll, { passive: true }); onScroll();
-burger.onclick = () => {
-  const o = menu.classList.toggle("open");
-  header.classList.toggle("open-menu", o);
-  burger.setAttribute("aria-expanded", o);
-};
-menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classList.remove("open"); header.classList.remove("open-menu"); burger.setAttribute("aria-expanded", false); } });
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && menu.classList.contains("open")) {
-    menu.classList.remove("open");
-    header.classList.remove("open-menu");
-    burger.setAttribute("aria-expanded", "false");
-    burger.focus();
-  }
-});
-
-/* link ativo no menu */
-const links = [...menu.querySelectorAll("a:not(.btn)")];
-if ("IntersectionObserver" in window) {
-  const spy = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) links.forEach(l => l.classList.toggle("on", l.getAttribute("href") === "#" + e.target.id));
-  }), { rootMargin: "-45% 0px -50% 0px" });
-  links.forEach(l => { const s = document.querySelector(l.getAttribute("href")); if (s) spy.observe(s); });
-}
-
-/* briefing antes do WhatsApp */
-fixLinks();
-const brief = $("#brief"), bf = $("#briefForm"), fSvc = $("#fSvc");
-fSvc.innerHTML = `<option value="">Selecione</option>` +
-  GROUPS.map(g => `<optgroup label="${g.title}">${g.items.map(i => `<option>${i.name}</option>`).join("")}</optgroup>`).join("") +
-  `<option>Outro / ainda não sei</option>`;
-try { $("#fNome").value = localStorage.getItem("ip_nome") || ""; $("#fClin").value = localStorage.getItem("ip_clin") || ""; } catch (e) {}
-
-function openBrief(svc) {
-  fSvc.value = svc || "";
-  bf.querySelectorAll(".bad").forEach(x => x.classList.remove("bad"));
-  brief.showModal();
-}
-document.addEventListener("click", e => {
-  const a = e.target.closest("[data-wa]");
-  if (!a || a.closest("#briefForm")) return;
-  e.preventDefault();
-  menu.classList.remove("open"); header.classList.remove("open-menu");
-  openBrief(a.dataset.svc || "");
-});
-$("#bfX").onclick = () => brief.close();
-brief.addEventListener("click", e => { if (e.target === brief) brief.close(); });
-bf.addEventListener("input", e => e.target.classList.remove("bad"));
-bf.addEventListener("submit", e => {
-  e.preventDefault();
-  const nome = $("#fNome"), svc = fSvc;
-  let ok = true;
-  [nome, svc].forEach(f => { const bad = !f.value.trim(); f.classList.toggle("bad", bad); if (bad) ok = false; });
-  if (!ok) { bf.querySelector(".bad").focus(); return; }
-  const v = id => $(id).value.trim();
-  const lines = ["Olá, Ronald! Sou dentista e gostaria de falar sobre um caso.", ""];
-  const add = (k, val) => { if (val) lines.push(`*${k}:* ${val}`); };
-  add("Nome", v("#fNome")); add("Clínica/cidade", v("#fClin")); add("Trabalho", fSvc.value);
-  add("Quantidade", $("#fQtd").value); add("Situação", bf.elements.molde.value);
-  add("Prazo", bf.elements.prazo.value); add("Observações", v("#fObs"));
-  lines.push("", "(Mensagem enviada pelo site)");
-  try { localStorage.setItem("ip_nome", v("#fNome")); localStorage.setItem("ip_clin", v("#fClin")); } catch (e) {}
-  window.open(wa(lines.join("\n")), "_blank", "noopener");
-  brief.close();
-});
-
-/* revelar ao rolar */
-if ("IntersectionObserver" in window) {
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-  }), { threshold: .12 });
-  document.querySelectorAll(".rv").forEach(el => io.observe(el));
-} else {
-  document.querySelectorAll(".rv").forEach(el => el.classList.add("in"));
-}
-</script>
+    // Lightbox
+    const box = document.getElementById('lightbox');
+    const boxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('[data-zoom]').forEach(b => b.addEventListener('click', () => {
+      boxImg.src = b.dataset.zoom; box.showModal();
+    }));
+    box.querySelector('.close').addEventListener('click', () => box.close());
+    box.addEventListener('click', e => { if (e.target === box) box.close(); });
+  </script>
 </body>
 </html>
